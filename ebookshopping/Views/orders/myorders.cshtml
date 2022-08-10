@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ebookshopping.Models.orders>
+
+@{
+    ViewData["Title"] = "myorders";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+
+<h1>My Cart</h1>
+
+<style>
+       
+
+   
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDp9srtcWx0g4f6Ulf_1R6L5sSGEXNo0ckIw&usqp=CAU');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+<body>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bookId)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.orderdate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookId)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderdate)
+            </td>
+            <td>
+                
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                <a asp-action="payment" asp-route-id="@item.Id" class="btn btn-primary">Make Payment</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>

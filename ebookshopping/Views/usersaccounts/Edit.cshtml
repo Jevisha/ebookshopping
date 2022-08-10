@@ -1,0 +1,58 @@
+﻿@model ebookshopping.Models.usersaccounts
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+<style>
+       
+
+   
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDp9srtcWx0g4f6Ulf_1R6L5sSGEXNo0ckIw&usqp=CAU');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+<h1>Edit</h1>
+
+<h4>My Account Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="name" class="control-label"><b>Nmae</b></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pass" class="control-label"><b>Password</b></label>
+                <input asp-for="pass" class="form-control" />
+                <span asp-validation-for="pass" class="text-danger"></span>
+            </div>
+           <input type="hidden" asp-for="role" />
+
+            <div class="form-group">
+                <label asp-for="email" class="control-label"><b>Email</b></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div> 
+    
+    <a asp-controller="books"  asp-action="catalogue">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

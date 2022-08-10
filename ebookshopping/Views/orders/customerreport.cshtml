@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ebookshopping.Models.report>
+
+@{
+    ViewData["Title"] = "customerreport";
+}
+<style>
+       
+
+   
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDp9srtcWx0g4f6Ulf_1R6L5sSGEXNo0ckIw&usqp=CAU');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    <body>
+<h1>Customer Report</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                 <a asp-action="customerOrders" asp-route-id="@item.Id"  class="btn btn-info">Details</a> 
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>

@@ -1,0 +1,79 @@
+﻿@model ebookshopping.Models.usersaccounts
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{
+    Layout = null;
+}
+<style>
+       
+
+   
+        body {
+            background-image: url('https://media.istockphoto.com/photos/books-on-table-in-front-of-chalk-board-picture-id1145925629?b=1&k=20&m=1145925629&s=170667a&w=0&h=QNMjiNkQZAQGmBNZlYrGsmtNXo1cgzLaXE0NfD88eDc=');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        input {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+    </style>
+
+
+<h1>Register</h1>
+
+<h3>Please fill in this form to create an account.</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create"  >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="name" class="control-label"> <b>Name</b></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+
+            
+            <div class="form-group">
+                <label asp-for="pass" class="control-label"><b> Password</b></label>
+                <input asp-for="pass" class="form-control" />
+                <span asp-validation-for="pass" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="email" class="control-label"> <b>Email</b></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+             <label>
+     
+    </label>
+    
+    <p>By creating an account you agree to our <a href="#" style="color:black">Terms & Privacy</a>.</p>
+            <div class="form-group">
+                <input type="submit" style="color:black"  value="Create" class="btn btn-primary" />
+            </div>
+           
+
+          
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="login" style="color:black;"><b>Back to Home Page</b></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

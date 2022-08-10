@@ -1,0 +1,84 @@
+﻿@model ebookshopping.Models.book
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+       
+
+   
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDp9srtcWx0g4f6Ulf_1R6L5sSGEXNo0ckIw&usqp=CAU');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+<body>
+<h1>Create</h1>
+
+<h4>Book Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"><b>Title</b></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="info" class="control-label"><b>Info</b></label>
+                <input asp-for="info" class="form-control" />
+                <span asp-validation-for="info" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bookquantity" class="control-label"><b>Book Quantity</b></label>
+                <input asp-for="bookquantity" class="form-control" />
+                <span asp-validation-for="bookquantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"><b>Price</b></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"><b>Category</b></label>
+                <select name="cataid"  class="form-control" asp-for="cataid">
+                    <option value="0">Please select</option>
+                    <option value="1">Computer Science</option>
+                    <option value="2">Computer Engineering</option>
+                     <option value="3">Fiction</option>
+                    <option value="4">Horror</option>
+                    <option value="5">Kids</option>
+                    <option value="6">Novels</option>
+                    <option value="7">Personality Development</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="author" class="control-label"><b> Author</b></label>
+                <input asp-for="author" class="form-control" />
+                <span asp-validation-for="author" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group"> <div class="form-group">
+                <label class="control-label"><b>Pic</b></label>
+                <input type="file" class="form-control" name="file" />
+            </div>
+           
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

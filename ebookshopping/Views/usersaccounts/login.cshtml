@@ -1,0 +1,61 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+ 
+
+</head>
+
+
+
+
+
+
+
+@{
+    ViewData["Title"] = "login";
+}
+
+@{
+    Layout = null;
+}
+
+ <style>
+       
+h1 {text-align: center;}
+   
+        body {
+            background-image: url('https://media.istockphoto.com/photos/books-on-table-in-front-of-chalk-board-picture-id1145925629?b=1&k=20&m=1145925629&s=170667a&w=0&h=QNMjiNkQZAQGmBNZlYrGsmtNXo1cgzLaXE0NfD88eDc=');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+<h1> E-Book Shop</h1>  
+<body>
+<div class="row">
+    <div class="col-md-7">
+<h1 style="width:auto;margin-top:180px; margin-left:450px;" >Login</h1>
+
+<form asp-action="Login" style="width:auto;margin-top:30px; margin-left:450px;" >
+    
+    <div class="form-group">
+        <label  class="control-label" > <b>User Name</b></label>
+        <input name="na" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="pa" class="control-label"> <b>User Password</b></label>
+        <input name="pa" type="password" class="form-control" /> <br />
+    </div>
+    <input type="submit" value="Login" class="btn btn-primary" />
+    
+    <p style="color:red"> @ViewData["message"]</p>
+</form>
+</div>
+ <a asp-action="Create" style="width:auto; margin-left:550px; color:black;"><b>Create Account</b></a>
+ </div>
+ </div>
+
+ </body>

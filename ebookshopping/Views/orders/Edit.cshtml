@@ -1,0 +1,49 @@
+﻿@model ebookshopping.Models.orders
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";} 
+<style>
+  body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDp9srtcWx0g4f6Ulf_1R6L5sSGEXNo0ckIw&usqp=CAU');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    <body>
+  
+<h1>Edit</h1>
+
+<h4>orders</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+           
+           
+            <div class="form-group">
+                <label asp-for="quantity" class="control-label"></label>
+                <input asp-for="quantity" class="form-control" />
+                <span asp-validation-for="quantity" class="text-danger"></span>
+            </div>
+                <input type="hidden" asp-for="bookId" />
+                <input type="hidden" asp-for="userid" />
+                <input type="hidden" asp-for="orderdate" />
+              
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
